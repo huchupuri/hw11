@@ -10,11 +10,11 @@ namespace hw10.Classes
     public class Building
     {
         private static uint lastBuildingId = 0;
-        private uint buildingId { get; set; }
-        private double? height { get; set; }
-        private uint? floors { get; set; }
-        private uint? apartments { get; set; }
-        private uint? entrances { get; set; }
+        public uint buildingId { get; set; }
+        public double? height { get; set; }
+        public uint? floors { get; set; }
+        public uint? apartments { get; set; }
+        public uint? entrances { get; set; }
 
 
         internal Building(double? height, uint? floors, uint? apartments, uint? entrances)
@@ -36,15 +36,6 @@ namespace hw10.Classes
         }
 
         /// <summary>
-        /// установка значений
-        /// </summary>
-        public void SetID(uint id) => buildingId = id;
-        public void SetHeight(uint newHeight) => height = newHeight;
-        public void SetFloors(uint newFloors) => floors = newFloors;
-        public void SetApartments(uint newApartments) => height = newApartments;
-        public void SetEntrances(uint newEntrances) => entrances = newEntrances;
-
-        /// <summary>
         /// генерирование id
         /// </summary>
         public uint GetBuildingId()
@@ -52,37 +43,7 @@ namespace hw10.Classes
             return buildingId;
         }
 
-        /// <summary>
-        /// вывод высоты
-        /// </summary>
-        public double? GetHeight()
-        {
-            return height;
-        }
-
-        /// <summary>
-        /// вывод кол-во этажей
-        /// </summary>
-        public uint? GetFloors()
-        {
-            return floors;
-        }
-
-        /// <summary>
-        /// вывод кол-во квартир
-        /// </summary>
-        public uint? GetApartments()
-        {
-            return apartments;
-        }
-
-        /// <summary>
-        /// вывод кол-во подъездов
-        /// </summary>
-        public uint? GetEntrances()
-        {
-            return entrances;
-        }
+        
 
         /// <summary>
         /// расчет высоты

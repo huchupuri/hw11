@@ -1,4 +1,6 @@
-﻿using System;
+﻿using hw10.Enums;
+using hw11.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,14 +8,17 @@ using System.Threading.Tasks;
 
 namespace hw10.Classes
 {
-    internal class Building
+    [DeveloperOrganization("Маркелов Михаил", "Re")]
+    [DeveloperOrganization("Не Михаил")]
+    [DeveloperOrganization()]
+    public class Building
     {
         private static uint lastBuildingId = 0;
-        private uint buildingId { get; set; }
-        private double? height { get; set; }
-        private uint? floors { get; set; }
-        private uint? apartments { get; set; }
-        private uint? entrances { get; set; }
+        public uint buildingId { get; set; }
+        public double? height { get; set; }
+        public uint? floors { get; set; }
+        public uint? apartments { get; set; }
+        public uint? entrances { get; set; }
 
 
         internal Building(double? height, uint? floors, uint? apartments, uint? entrances)
@@ -35,15 +40,6 @@ namespace hw10.Classes
         }
 
         /// <summary>
-        /// установка значений
-        /// </summary>
-        public void SetID(uint id) => buildingId = id;
-        public void SetHeight(uint newHeight) => height = newHeight;
-        public void SetFloors(uint newFloors) => floors = newFloors;
-        public void SetApartments(uint newApartments) => height = newApartments;
-        public void SetEntrances(uint newEntrances) => entrances = newEntrances;
-
-        /// <summary>
         /// генерирование id
         /// </summary>
         public uint GetBuildingId()
@@ -51,37 +47,7 @@ namespace hw10.Classes
             return buildingId;
         }
 
-        /// <summary>
-        /// вывод высоты
-        /// </summary>
-        public double? GetHeight()
-        {
-            return height;
-        }
 
-        /// <summary>
-        /// вывод кол-во этажей
-        /// </summary>
-        public uint? GetFloors()
-        {
-            return floors;
-        }
-
-        /// <summary>
-        /// вывод кол-во квартир
-        /// </summary>
-        public uint? GetApartments()
-        {
-            return apartments;
-        }
-
-        /// <summary>
-        /// вывод кол-во подъездов
-        /// </summary>
-        public uint? GetEntrances()
-        {
-            return entrances;
-        }
 
         /// <summary>
         /// расчет высоты
@@ -103,6 +69,7 @@ namespace hw10.Classes
             return apartments / (floors * entrances);
         }
 
+
         /// <summary>
         /// вывод информации
         /// </summary>
@@ -116,6 +83,19 @@ namespace hw10.Classes
             Console.WriteLine($"Высота этажа: {GetFloorHeight():F2} м");
             Console.WriteLine($"Квартир на подъезд: {GetApartmentsPerEntrance()}");
             Console.WriteLine($"Квартир на этаже: {GetApartmentsPerFloor()}\n");
+        }
+        public override string ToString()
+        {
+            string buildingInfo =
+                $"Здание ID: {buildingId}\n" +
+                $"Высота: {height} м\n" +
+                $"Этажность: {floors}\n" +
+                $"Количество квартир: {apartments}\n" +
+                $"Количество подъездов: {entrances}\n" +
+                $"Высота этажа: {GetFloorHeight():F2} м\n" +
+                $"Квартир на подъезд: {GetApartmentsPerEntrance()}\n" +
+                $"Квартир на этаже: {GetApartmentsPerFloor()}\n";
+            return buildingInfo;
         }
     }
 }

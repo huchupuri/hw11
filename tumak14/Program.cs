@@ -14,6 +14,7 @@ namespace tumak13
         {
             Task1();
             Task2();
+            Task3();
         }
 //        Использование предопределенного условного атрибута для условного
 //выполнения кода(указывает компиляторам, что при отсутствии символа условной
@@ -23,7 +24,7 @@ namespace tumak13
 //компиляции DEBUG_ACCOUNT.Протестировать метод DumpToScreen.
         static void Task1()
         {
-
+            Console.WriteLine("задание 1");
             BankAccountFactory factory = new BankAccountFactory();
             uint bankAccount = factory.CreatBankAccount(123, AccountType.debit);
             BankAccount account = BankAccountFactory.accounts[bankAccount] as BankAccount;
@@ -35,12 +36,24 @@ namespace tumak13
         }
         static void Task2()
         {
+            Console.WriteLine("\nзадание 2");
             Type type = typeof(RationalNums);
 
             object[] attributes = type.GetCustomAttributes(typeof(DeveloperInfoAttribute), false);
             foreach (DeveloperInfoAttribute attr in attributes)
             {
                 Console.WriteLine($"{attr.DeveloperName} {attr.DevelopmentDate}");
+            }
+        }
+        static void Task3() 
+        {
+            Console.WriteLine("\nзадание 3");
+            Type type = typeof(Building);
+
+            object[] attributes = type.GetCustomAttributes(typeof(DeveloperOrganizationAttribute), false);
+            foreach (DeveloperOrganizationAttribute attr in attributes)
+            {
+                Console.WriteLine($"{attr.DeveloperName} {attr.OrganizationName}");
             }
         }
     }

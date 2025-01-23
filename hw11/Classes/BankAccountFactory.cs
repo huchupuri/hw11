@@ -11,7 +11,7 @@ namespace hw10.Classes
 {
     internal class BankAccountFactory
     {
-        public static Hashtable accounts = new Hashtable();
+        public static Dictionary<uint, BankAccount> accounts = new Dictionary<uint, BankAccount>();
         public uint CreatBankAccount()
         {
             BankAccount bankAccount = new BankAccount();

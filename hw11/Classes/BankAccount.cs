@@ -90,11 +90,11 @@ namespace hw10.Classes
         /// <summary>
         /// индексатор
         /// </summary>
-        public object this[int index]
+        public BankTransaction this[int index]
         {
             get
             {
-                if (index < 0 || index > transactions.LongCount() - 1) return -1;
+                if (index < 0 || index > transactions.LongCount() - 1) return null;
                 Queue<BankTransaction> queueInsert = new Queue<BankTransaction>(transactions);
                 for (int i = 0; i <= index; i++)
                 {
